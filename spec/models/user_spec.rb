@@ -4,7 +4,7 @@ describe User do
 
 before do
     @user = User.new(name: "Example User", email: "user@example.com",
-                     password: "foobar", password_confirmation: "foobar")
+                     password: "foobar", password_confirmation: "foobar", weight_user:"100")
   end
 
   subject { @user }
@@ -14,6 +14,7 @@ before do
   it { should respond_to(:password_digest) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:weight_user) }
 
   it { should be_valid }
 
