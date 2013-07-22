@@ -15,8 +15,11 @@ before do
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
   it { should respond_to(:weight_user) }
-
   it { should be_valid }
+  it { should respond_to(:password_confirmation) }
+  it { should respond_to(:remember_token) }
+  it { should respond_to(:authenticate) }
+
 
   describe "when name is not present" do
     before { @user.name = " " }
