@@ -1,31 +1,40 @@
-<header class="navbar navbar-fixed-top navbar-inverse">
-  <div class="navbar-inner">
-    <div class="container">
-      <%= link_to "sample app", root_path, id: "logo" %>
-      <nav>
-        <ul class="nav pull-right">
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Help", help_path %></li>
-          <% if signed_in? %>
-            <li><%= link_to "Users", '#' %></li>
-            <li id="fat-menu" class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                Account <b class="caret"></b>
-              </a>
-              <ul class="dropdown-menu">
-                <li><%= link_to "Profile", current_user %></li>
-                <li><%= link_to "Settings", '#' %></li>
-                <li class="divider"></li>
-                <li>
-                  <%= link_to "Sign out", signout_path, method: "delete" %>
-                </li>
-              </ul>
-            </li>
-          <% else %>
-            <li><%= link_to "Sign in", signin_path %></li>
-          <% end %>
-        </ul>
-      </nav>
-    </div>
-  </div>
-</header>
+
+
+
+
+  <head>
+    <div id="wrapper">
+      <div id="sidebar">
+        <a class="btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <!-- <div id="logo"> <a href="/"><img src="img/logo.svg" alt="logo" /></a> </div> -->
+        <nav id="nav" class="navigation" role="navigation">
+          <ul class="unstyled">
+            <% if params[:action] =="home" %>
+            <li class="active" ><div id="iconmaster"> <%= link_to "<i class=\"icon-home\"></i>".html_safe, root_path %> </div> <%= link_to "Home", root_path %> </li> 
+            <% else %>
+                <li ><div id="iconmaster"> <%= link_to "<i class=\"icon-home\"></i>".html_safe, root_path %></div>  <%= link_to "Home", root_path %> </li> 
+            <% end %>
+
+            <% if params[:action] == "about" %>
+            <li class="active"><div id="iconmaster"> <%= link_to "<i class=\"icon-user\"></i>".html_safe,about_path %> </div> <%= link_to "About", about_path %></li>
+            <% else %>
+
+            <li> <div id="iconmaster"><%= link_to "<i class=\"icon-user\"></i> ".html_safe , about_path  %> </div> <%= link_to "About", about_path %> </li>
+
+            <% end %>
+
+
+            <li ><i class="icon-laptop"></i> <span>Projects</span></li>
+            <li ><i class="icon-pencil"></i> <span>Social</span></li>
+            <li ><i class="icon-envelope"></i> <span>Contact</span></li>
+          </ul>
+        </nav><!-- /nav -->
+      </div><!-- /sidebar -->
+</head>
+
+
+
